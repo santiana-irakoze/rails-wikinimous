@@ -1,0 +1,24 @@
+<div class="container my-5" style="background-color: orange; padding: 20px; border-radius: 10px;">
+  <h1 class="mb-4" style="color: green; font-weight: bold;">My Articles</h1>
+  <ul class="list-group">
+    <% @articles.each do |article| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color: #ffcc99; color: green;">
+        <div>
+          <h5 style="color: green;"><%= article.title %></h5>
+          <p><%= article.content %></p>
+        </div>
+        <div>
+          <%= link_to edit_article_path(article), class: "btn btn-sm btn-outline-success me-2", title: "Edit" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-outline-danger", title: "Delete" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <div class="mt-4">
+    <%= link_to "+ Add new article", new_article_path, class: "btn btn-success" %>
+  </div>
+</div>

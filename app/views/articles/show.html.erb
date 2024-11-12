@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <h1 class="display-5 text-primary mb-4"><%= @article.title %></h1>
+  <p class="alert alert-info"><%= @article.content %></p>
+  <div class="card p-4 mb-4">
+    <h5 class="card-title">Update Status</h5>
+    <%= form_with model: @article, method: :patch, local: true, class: "form-inline" do |form| %>
+      <%= form.submit "Save Changes", class: "btn btn-primary ms-2" %>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-between">
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-secondary" %>
+    <%= link_to "Delete",
+                article_path(@article),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "btn btn-danger" %>
+    <%= link_to "Back to List", articles_path, class: "btn btn-outline-primary" %>
+  </div>
+</div>

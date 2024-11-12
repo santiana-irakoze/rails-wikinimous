@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <h2 class="mb-4 text-primary">Add new Article</h2>
+  <%= form_with model: @article, local: true, class: "card p-4 shadow" do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, class: "form-label" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "Enter article title" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :content, class: "form-label" %>
+      <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "Enter article details" %>
+    </div>
+    <%= f.submit "Save Article", class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back to List", articles_path, class: "btn btn-outline-secondary mt-4" %>
+</div>
